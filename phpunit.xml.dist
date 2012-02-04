@@ -24,5 +24,8 @@
     <whitelist addUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">lib</directory>
     </whitelist>
+    <blacklist>
+        <file>lib/Robo47/Widget/TwitterWidget.php</file>
+    </blacklist>
   </filter>
 </phpunit>

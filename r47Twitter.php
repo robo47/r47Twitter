@@ -6,8 +6,8 @@
 /*
   Plugin Name: r47Twitter
   Plugin URI: http://github.com/robo47/r47Twitter
-  Description: A simple Plugin
-  Version: 0.1.0
+  Description: A simple Plugin for showing tweets via a widget
+  Version: 0.2.0
   Author: Benjamin Steininger
   Author URI: http://www.benjamin-steininger.de
   License: GPLv2 or later
@@ -29,62 +29,15 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-define('R47TWITTER_VERSION', '0.1.0');
+define('R47TWITTER_VERSION', '0.2.0');
 define('R47TWITTER_PLUGIN_URL', plugin_dir_url(__FILE__));
 // include version to be able to change what form of data is actually saved
 define('R47TWITTER_TRANSIENT_PREFIX', 'r47twitter_' . R47TWITTER_VERSION . '_');
 
 require_once 'autoload.php';
 
-/**
- *
- * @param string $username
- * @param string $cachetime
- * @return array  
- */
-function r47_get_tweets($username, $cachetime = 60)
-{
-    try {
-        $tweets = get_transient(R47TWITTER_TRANSIENT_PREFIX . $username);
-        if (!$tweets) {
-            $twitter = new Robo47_Wordpress_Twitter($username);
-            $tweets = $twitter->fetchTweets();
-            set_transient(R47TWITTER_TRANSIENT_PREFIX . $username, $tweets,
-                $cachetime);
-        }
-    } catch (Exception $e) {
-        // ignore anything - just return empty string - we are doing frontend stuff! :)
-        return '';
-    }
-    return $tweets;
+function r47Twitter_register_widgets() {
+    register_widget( 'Robo47_Widget_TwitterWidget' );
 }
 
-/**
- * 
- * @param string $username
- * @param integer $count max is 20
- * @param string $cachetime 
- */
-function r47_show_tweets($username, $count, $cachetime = 60)
-{
-    $tweets = r47_get_tweets($username, $cachetime);
-
-    if ($tweets) {
-        echo '<div class="rfourseven-tweets">';
-        echo '<ul class="rfourseven-tweets-list>';
-        $i = 1;
-        foreach ($tweets as $tweet) {
-            echo '<li class="rfourseven-tweets-tweet">';
-            echo $tweet['text'];
-            echo '<a href="https://twitter.com/#!/'. $username .'/status/'.$tweet['id'].'"><br />';
-            echo date('d.m.y H:i:s', strtotime($tweet['created_at']));
-            echo '</a>';
-            if ($i >= $count) {
-                break;
-            }
-            $i++;
-        }
-        echo '<ul>';
-        echo '</div>';
-    }
-}
+add_action( 'widgets_init', 'r47Twitter_register_widgets' );
