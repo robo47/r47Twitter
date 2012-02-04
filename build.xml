@@ -81,8 +81,5 @@
  </target>
 
  <target name="build" depends="clean,parallelTasks,phpunit,phpcb"/>
- 
- <target name="package">
-     <!-- @todo create zip without tests and stuff - only needed files-->
- </target>
+
 </project>

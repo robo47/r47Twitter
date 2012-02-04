@@ -1,6 +1,6 @@
 <?php
 
-$classLoader = new SplClassLoader(null, dirname(__FILE__) . '/lib/');
+$classLoader = new r47TwitterSplClassLoader(null, dirname(__FILE__) . '/lib/');
 $classLoader->register();
 
 /**
@@ -21,7 +21,7 @@ $classLoader->register();
  * @author Kris Wallsmith <kris.wallsmith@gmail.com>
  * @author Fabien Potencier <fabien.potencier@symfony-project.org>
  */
-class SplClassLoader
+class r47TwitterSplClassLoader
 {
 
     private $_fileExtension = '.php';
