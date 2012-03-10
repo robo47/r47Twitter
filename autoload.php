@@ -1,6 +1,6 @@
 <?php
 
-$classLoader = new r47TwitterSplClassLoader(null, dirname(__FILE__) . '/lib/');
+$classLoader = new r47TwitterSplClassLoader(null, dirname(__FILE__) . '/src/');
 $classLoader->register();
 
 /**

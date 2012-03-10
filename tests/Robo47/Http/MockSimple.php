@@ -18,6 +18,6 @@ class Robo47_Http_MockSimpleTest extends PHPUnit_Framework_TestCase
         $mock = new Robo47_Http_MockSimple('foo');
         $this->assertEquals('foo',$mock->fetch('http://example.com'));
         $this->assertEquals('http://example.com',$mock->url);
-        
+
     }
 }

@@ -28,7 +28,7 @@ class Robo47_Wordpress_TwitterTest extends PHPUnit_Framework_TestCase
         $twitter = new Robo47_Wordpress_Twitter('robo47', $http);
         $this->assertEquals('robo47', $twitter->getAccount());
     }
-    
+
     /**
      * @covers  Robo47_Wordpress_Twitter::fetchTweets
      */

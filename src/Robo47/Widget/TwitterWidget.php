@@ -33,6 +33,7 @@ class Robo47_Widget_TwitterWidget extends WP_Widget {
         foreach ($this->widget_additional_options() as $option => $description) {
             $instance[$option] = strip_tags($new_instance[$option]);
         }
+
         return $instance;
     }
 
@@ -59,7 +60,7 @@ EOT;
      * @param string $username
      * @param integer $count [currently unused]
      * @param integer $cachetime
-     * @return string 
+     * @return string
      */
     public function fetchTwitterData($username, $count, $cachetime) {
         try {
@@ -73,6 +74,7 @@ EOT;
             // ignore anything - just return empty string - we are doing frontend stuff! :)
             return '';
         }
+
         return $tweets;
     }
 
@@ -81,7 +83,7 @@ EOT;
      * @param string $title
      * @param string $username
      * @param integer $count
-     * @param integer $cachetime 
+     * @param integer $cachetime
      */
     public function render($title, $username, $count, $cachetime) {
         echo '<!-- r47Twitter | ' . $count . ' tweets for ' . $username . ' cachetime: ' . $cachetime . ' -->';

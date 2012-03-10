@@ -44,6 +44,7 @@ class Robo47_Wordpress_Twitter
     public function setAccount($account)
     {
         $this->account = $account;
+
         return $this;
     }
 
@@ -63,6 +64,7 @@ class Robo47_Wordpress_Twitter
     public function setHttp(Robo47_Http_HttpInterface $http)
     {
         $this->http = $http;
+
         return $this;
     }
 
@@ -76,6 +78,7 @@ class Robo47_Wordpress_Twitter
         $url = sprintf(self::statusurl, $this->getAccount());
         $code = $this->http->fetch($url);
         $json = json_decode($code, true);;
+
         return $json;
     }
 

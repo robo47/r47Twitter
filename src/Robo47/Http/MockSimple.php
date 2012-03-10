@@ -10,10 +10,10 @@ class Robo47_Http_MockSimple implements Robo47_Http_HttpInterface {
      * @var string
      */
     public $code = '';
-    
+
     /**
      * Last Url fetched is saved here
-     * @var null|string 
+     * @var null|string
      */
     public $url = null;
 
@@ -29,6 +29,7 @@ class Robo47_Http_MockSimple implements Robo47_Http_HttpInterface {
      */
     public function fetch($url) {
         $this->url = $url;
+
         return $this->code;
     }
 

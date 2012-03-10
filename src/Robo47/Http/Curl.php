@@ -6,7 +6,7 @@
 class Robo47_Http_Curl implements Robo47_Http_HttpInterface {
 
     /**
-     * {@inheritdoc} 
+     * {@inheritdoc}
      */
     public function fetch($url) {
         $curl = curl_init($url);
@@ -14,6 +14,7 @@ class Robo47_Http_Curl implements Robo47_Http_HttpInterface {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($curl);
         curl_close($curl);
+
         return $response;
     }
 
