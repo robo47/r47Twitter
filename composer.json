@@ -1,0 +1,23 @@
+{
+  "name": "robo47/r47Twitter",
+  "description": "WordPress Plugin for showing tweets",
+  "type": "library",
+  "keywords":  [ "twitter", "wordpress"],
+  "homepage": "https://github.com/robo47/r47SensioConnect",
+  "license": "MIT",
+  "authors": [
+  {
+    "name": "Benjamin Steininger",
+    "email": "robo47@robo47.net",
+    "homepage": "http://www.benjamin-steininger.de"
+  }
+  ],
+  "require": {
+    "php": ">=5.2.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "Robo47": "lib/"
+    }
+  }
+}
